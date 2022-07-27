@@ -1,9 +1,11 @@
 import React from 'react'
 
-function Button() {
+const Button=({handleClick})=> {
     console.log("Button render");
   return (
-    <div>Button</div>
+    <button onClick={handleClick}>
+        sayacı arttır
+      </button>
   )
 }
 

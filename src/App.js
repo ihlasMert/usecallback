@@ -1,21 +1,22 @@
 import "./App.css";
-import React, { useState, useMemo} from "react";
+import React, { useState, useCallback} from "react";
 import Button from "./Button"
 
 
 const App = () => {
   const [count, setCount] = useState(0);
-  const [text, setText] = useState("");
+
+const incrementCount =useCallback(()=>{
+  setCount((prevCount)=>prevCount + 1)
+}, [])
 
  
   return (
     <div className="App">
       <p>{count}</p>
-      <button onClick={() => setCount((prevCount) => prevCount + 1)}>
-        sayacı arttır
-      </button>
-      <Button/>
-      <input type="text" onChange={(e) => setText(e.target.value)} />
+     
+      <Button handleClick={incrementCount}/>
+
     </div>
   );
 };
